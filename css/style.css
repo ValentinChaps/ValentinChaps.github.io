@@ -50,7 +50,7 @@ body {
 }
 
 .neutralStar {
-    color: var(--main-bg-color)
+    color: var(--main-bg-color);
 }
 
 /****** Hebergements And Populaires ***********/
