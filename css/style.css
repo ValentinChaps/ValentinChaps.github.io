@@ -44,6 +44,9 @@ body {
 .card-title {
     font-size: 16px;
 }
+.card-subtitle{
+    font-size: 16px;
+}
 
 .euro {
     font-weight: 700;
