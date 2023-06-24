@@ -1,12 +1,46 @@
 /****** General ***********/
 * {
     font-family: 'Raleway', sans-serif;
+    margin: 0;
 }
 
 :root {
     --main-color: #0065FC;
     --main-bg-color: #F2F2F2;
     --filter-bg-color: #DEEBFF;
+}
+
+
+header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+.logo{
+   width: 37%;
+   
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    
+  }
+
+nav a:hover {
+    border-top: #0065FC solid 3px;
+    padding-top:21px;
+    color: #0065FC;
 }
 
 .fa-solid {
@@ -21,6 +55,7 @@ body {
 .main-container {
     width: 100%;
     max-width: 1440px;
+    min-width: 320px ;
     padding: 0 50px;
     box-sizing: border-box;
 }
