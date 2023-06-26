@@ -82,6 +82,17 @@ h1+p{
     display: none;
 }
 
+.filtres-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.filtres-icones{
+    display: flex;
+    flex-direction: row;
+}
+
+
 
 .fa-solid {
     color: var(--main-color);
@@ -202,6 +213,11 @@ body {
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
+
+    .filtres-box{
+        flex-direction: column;
+    }
+
     .hebergements-and-populaires {
         flex-direction: column;
     }
@@ -242,5 +258,9 @@ body {
 
     .box-search button i{
         display: flex
+    }
+
+    .filtres-icones{
+        flex-direction: column;
     }
 }
