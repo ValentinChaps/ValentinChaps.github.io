@@ -54,7 +54,8 @@ h1+p{
 }
 
 .box-search {
-    display: flex; 
+    display: flex;
+    margin-bottom: 40px; 
 }
 
 .icone-search .fa-solid{
@@ -75,6 +76,7 @@ h1+p{
     border-radius: 0px 10px 10px 0px;
     padding: 12px; 
     border: 1px;
+    font-size: 16px;
 }
 
 .box-search button i{
@@ -82,14 +84,45 @@ h1+p{
     display: none;
 }
 
-.filtres-box{
+.filtres{
     display: flex;
     flex-direction: row;
+    margin-bottom: 40px;
+}
+
+.filtres-titre{
+    margin-right: 20px;
+    position: relative;
+    top: 12px;
 }
 
 .filtres-icones{
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
+    
+}
+
+.filtres-box{
+    border: 3px solid;
+    border-color: var(--main-bg-color);
+    border-radius: 40px ;
+    background-color: white;
+    padding: 10px;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.filtres-box:hover{
+    background-color: #c7daf8;
+}
+
+.fa-money-bill-wave, .fa-person, .fa-heart, .fa-fire{
+    padding-right:10px;
+}
+
+.filtres-icones span{
+    padding-left:20px;
+    padding-right:20px;
 }
 
 
@@ -214,8 +247,13 @@ body {
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
 
-    .filtres-box{
-        flex-direction: column;
+    .filtres{
+        flex-direction: column;  
+        
+    }
+
+    .filtres-titre{
+        margin-bottom: 35px;
     }
 
     .hebergements-and-populaires {
@@ -261,6 +299,12 @@ body {
     }
 
     .filtres-icones{
-        flex-direction: column;
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .filtres-box{
+        
+        margin-bottom: 20px;
     }
 }
