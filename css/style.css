@@ -303,6 +303,11 @@ h1+p{
     margin-bottom: 5px;
 }
 
+.populaires-cards a{
+    text-decoration: none;
+    color: black;
+}
+
 /* Activités */
 
 
@@ -338,6 +343,11 @@ h1+p{
     border-bottom-right-radius: 20px;
 }
 
+.activites-cards a{
+    text-decoration: none;
+    color: black;
+}
+
 /* Footer */
 
 footer{
@@ -360,6 +370,11 @@ footer p{
     padding: 7px 0px;
 }
 
+footer a{
+    text-decoration: none;
+    color: black;
+}
+
 
 /* Le code ci-dessous correspond à la version responsive uniquement */
 
@@ -369,7 +384,6 @@ footer p{
 
     .filtres{
         flex-direction: column;  
-        
     }
 
     .filtres-titre{
