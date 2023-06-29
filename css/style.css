@@ -156,9 +156,14 @@ h1+p{
     margin-bottom:40px;
 }
 
+
+/* Icone "i" d'information */
+
+
 .p-logement i{
     margin-right: 10px;
 }
+
 
 /* Cards */
 
@@ -436,11 +441,13 @@ footer a{
 @media (max-width: 767.98px) {
 
     .main-container{
-        padding: 0 20px
+        padding: 0;
+        
     }
-
+    
     header{
         white-space: nowrap;
+        border-bottom: var(--main-bg-color) solid 3px;
       }
 
     nav {
@@ -453,9 +460,29 @@ footer a{
         margin: 50px;
     }
 
-
     .navigation{
         margin-top: 20px;
+        position: relative;
+    }
+
+    .nav-hebergement:hover::after {
+        content: '';
+        position: absolute;
+        left: -300px;
+        bottom: -23px; 
+        width: 400%;
+        height: 2.5px; 
+        background-color: var(--main-color); 
+    }
+
+    .nav-activites:hover::after{
+        content: '';
+        position: absolute;
+        right: -252px;
+        bottom: -23px; 
+        width: 600%;
+        height: 2.5px; 
+        background-color: var(--main-color); 
     }
 
     .logo1{
@@ -463,65 +490,10 @@ footer a{
         justify-content: center;
     }
 
-    .navigation a {
-        position: relative; /* Utilise display: inline-block pour que les liens prennent la largeur du contenu */
-        margin: 50px;
-      }
-
-      
-     .navigation ::before {
-        content: '';
-        position: absolute;
-        left: -400px;
-        bottom: -21px; /* Ajustez cette valeur pour contrôler l'épaisseur de la barre */
-        width: 100%;
-        height: 2px; /* Ajustez cette valeur pour contrôler la hauteur de la barre */
-        background-color: var(--main-bg-color); /* Ajustez la couleur de la barre selon vos besoins */
-        z-index: 1;
-      }
-
-      .navigation ::before{
-        width: 2000%;
-      }
-      
-      .nav-hebergement::after {
-        content: '';
-        position: absolute;
-        left: -300px;
-        bottom: -21px; /* Ajustez cette valeur pour contrôler l'épaisseur de la barre */
-        width: 100%;
-        height: 2px; /* Ajustez cette valeur pour contrôler la hauteur de la barre */
-        background-color: var(--main-color); /* Ajustez la couleur de la barre selon vos besoins */
-        display: none;
-        z-index: 2;
-      }
-
-      .nav-activites::after{
-        content: '';
-        position: absolute;
-        right: -260px;
-        bottom: -21px; /* Ajustez cette valeur pour contrôler l'épaisseur de la barre */
-        width: 100%;
-        height: 2px; /* Ajustez cette valeur pour contrôler la hauteur de la barre */
-        background-color: var(--main-color); /* Ajustez la couleur de la barre selon vos besoins */
-        display: none;
-        z-index: 2;
-      }
-
-      .nav-hebergement:hover::after {
-        width: 400%; /* Définit la largeur de la barre à 100% moins la marge lorsque vous survolez le lien */
-        display: inline;
-      }
-
-      .nav-activites:hover::after {
-        width: 600%; /* Définit la largeur de la barre à 100% moins la marge lorsque vous survolez le lien */
-        display: inline;
-      }
-
-
-      nav a:hover{
+    
+    nav a:hover{
         border-top: none;
-      }
+    }
 
 
     .Rechercher-button{
