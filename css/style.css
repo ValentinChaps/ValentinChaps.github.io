@@ -113,8 +113,7 @@ h1+p{
     display: flex;
     flex-direction: row;
     margin-bottom: 40px;
-    white-space: nowrap;
-    overflow: auto;   
+    white-space: nowrap;   
 }
 
 .filtres-titre{
@@ -161,6 +160,10 @@ h1+p{
 
 .p-logement i{
     margin-right: 10px;
+}
+
+button .fa-solid {
+    color: black;
 }
 
 
