@@ -70,7 +70,6 @@ h1+p{
     padding-bottom: 25px;
 }
 
-
 /* Barre de recherche */
 
 
@@ -156,14 +155,21 @@ h1+p{
 
 
 /* Icone "i" d'information */
-
+.p-logement{
+    display: flex;
+}
 
 .p-logement i{
     margin-right: 10px;
+    padding: 6px 10px;
+    border-radius: 100%;
+    border: var(--main-bg-color) solid 2px;
+    font-size: 12px;
+    height: 100%;
 }
 
-button .fa-solid {
-    color: black;
+.p-logement p{
+    padding-top: 4px;
 }
 
 
@@ -595,5 +601,9 @@ footer a{
         width: 100%;
         padding-bottom: 40px;
         padding-left: 20px;
+    }
+
+    .p-logement p{
+        padding-top: 0px;
     }
 }
