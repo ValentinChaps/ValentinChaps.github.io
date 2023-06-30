@@ -416,11 +416,12 @@ footer a{
         box-sizing: border-box;
     }
 
-    .populaires-cards .card {
+    .populaires-cards a{
         width: 32%;
         display: flex;
         box-sizing: border-box;
     }
+    
     .populaires-cards img{
         height: 126px;
     }
@@ -556,8 +557,13 @@ footer a{
     }
 
     .populaires-cards .card{
+        width: 100%;  
+    }
+
+    .populaires-cards a{
         width: 100%;
-        
+        display: flex;
+        box-sizing: border-box;
     }
 
     .activites{
@@ -571,6 +577,10 @@ footer a{
 
     .activites-cards .card{
         width: 100%;
+    }
+
+    .activites-cards img{
+        height: 150px;
     }
 
     footer{
