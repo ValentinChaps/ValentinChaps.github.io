@@ -84,7 +84,7 @@ h1+p{
     color: black;
 }
 
-::-moz-placeholder{
+*::-moz-placeholder{
     font-weight: bold;
     font-size: 18px;
     color: black;
