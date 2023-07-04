@@ -84,6 +84,12 @@ h1+p{
     color: black;
 }
 
+::-moz-placeholder{
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+}
+
 .icone-search .fa-solid{
     color: black;
     background-color: var(--main-bg-color);
