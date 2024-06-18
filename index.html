@@ -1,329 +1,1099 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booki</title>
-    <!-- Kit font awesome -->
-    <script src="https://kit.fontawesome.com/fc868ffeb8.js" crossorigin="anonymous"></script>
-    <!-- Police de google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+	<script type="text/javascript">
+        (function() {
+            emailjs.init({
+              publicKey: "6BXycisIXhUfVcLgu",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(() => {
+						const messageWarning = document.getElementById('message-success')
+						messageWarning.style.display = "block"
+                        console.log('SUCCESS!');
+                    }, (error) => {
+						const messageWarning = document.getElementById('message-warning')
+						messageWarning.style.display = "block"
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Valentin Chapel</title>
+	<meta name="description" content="">  
+	<meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="css/base.css">  
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/vendor.css">     
+
+   <!-- script
+   ================================================== -->   
+	<script src="js/modernizr.js"></script>
+	<script src="js/pace.min.js"></script>
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="favicon.png">
+
 </head>
 
-<body>
-    <div class="main-container">
-        <header>
-            <nav> 
-                <div class="logo-box">      
-                    <img src="images/logo/Booki.png" alt="Logo Booki" class="logo">
-                </div>    
-                <div class="navigation">
-                    <a class="nav-hebergement" href="#hebergements_ancre">Hébergements</a>
-                    <a class="nav-activites" href="#activites_ancre">Activités</a> 
-                </div>
-            </nav>
-        </header>
-        <main>
-            <section class="search-and-filtres">
-                <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
-                <p>En plein centre-ville ou en pleine nature</p>
-                <div class="box-search">
-                    <label for="site-search"></label>
-                    <span class="icone-search">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </span>
-                    <input type="search" id="site-search" name="q" placeholder="Marseille, France">
-                    <button>
-                        <span class="Rechercher-button">Rechercher</span><i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </div>
+<body id="top">
 
-                <!-- Filtres -->
+	<!-- header 
+   ================================================== -->
+   <header>   	
+   	<div class="row">
 
-                <div class="filtres">
-                    <h3 class="filtres-titre">Filtres</h3>
-                    <div class="filtres-icones">          
-                        <h3>
-                            <span class="filtres-box"><i class="fa-solid fa-money-bill-wave"></i>Économique</span>
-                            <span class="filtres-box"><i class="fa-solid fa-person"></i>Familial</span>
-                        </h3>
-                        <h3>
-                            <span class="filtres-box"><i class="fa-solid fa-heart"></i>Romantique</span>
-                            <span class="filtres-box"><i class="fa-solid fa-fire"></i>Nos pépites</span>
-                        </h3>
-                    </div>                
-                </div>
-                <div class="p-logement">
-                    <i class="info-icon fa-solid fa-info"></i>
-                    <p>Plus de 500 logements sont disponibles dans cette ville</p>
-                </div> 
-            </section>
+   		<div class="top-bar">
+			
+   			<a class="menu-toggle" href="#"><span>Menu</span></a>
 
-            <!-- Herbergements et populaires -->
+	   		<div class="logo menu-toggle">
+		         <a href="#">Menu</a>
+		      </div>		      
 
-            <div class="hebergements-and-populaires">
+		   	<nav id="main-nav-wrap">
+					<ul class="main-navigation">
+						<li class="current"><a class="smoothscroll"  href="#intro" title="">Accueil</a></li>
+						<li><a class="smoothscroll"  href="#about" title="">À propos</a></li>
+						<li><a class="smoothscroll"  href="#resume" title="">Mon parcours</a></li>
+						<li><a class="smoothscroll"  href="#portfolio" title="">Portfolio</a></li>
+						<li><a class="smoothscroll"  href="#services" title="">Services</a></li>					
+						<li><a class="smoothscroll"  href="#contact" title="">Contact</a></li>	
+						<!-- <li><a href="styles.html" title="">Style Demo</a></li>				 -->
+					</ul>
+				</nav>    		
+   		</div> <!-- /top-bar --> 
+   		
+   	</div> <!-- /row --> 		
+   </header> <!-- /header -->
 
-                <!-- Herbergement -->
+	<!-- intro section
+   ================================================== -->
+   <section id="intro">   
 
-                <section id="hebergements_ancre" class="hebergements">
-                    <h2 class="section-title">Hébergements à Marseille</h2>
-                    <div class="herbergements-cards">
-                        <article class="card">
-                            <a href="#">
-                                <img src="./images/hebergements/fred-kleber.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Hôtel du port</h3>
-                                        <p class="card-subtitle">Nuit à partir de 52<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="card">
-                            <a href="#">
-                                <img src="./images/hebergements/febrian-zakaria.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Hôtel Chez Amina</h3>
-                                        <p class="card-subtitle">Nuit à partir de 96<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="card">
-                            <a href="#">
-                                <img src="./images/hebergements/reisetopia.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Hôtel Les Mouettes</h3>
-                                        <p class="card-subtitle">Nuit à partir de 61<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                    <div class="herbergements-cards">
-                        <article class="card">
-                            <a href="#">
-                                <img src="./images/hebergements/annie-spratt.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Hôtel de la mer</h3>
-                                        <p class="card-subtitle">Nuit à partir de 46<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="card">
-                            <a href="#">
-                                <img src="./images/hebergements/marcus-loke.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Auberge La Canebière</h3>
-                                        <p class="card-subtitle">Nuit à partir de 25<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                        <article class="card">
-                            <a href="#">
-                                <img src="./images/hebergements/nicate-lee.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Auberge Le Panier</h3>
-                                        <p class="card-subtitle">Nuit à partir de 23<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>                     
-                    </div>
-                    <a href="#"><h4>Afficher plus</h4></a>
-                </section>
-                
+   	<div class="intro-overlay"></div>	
 
-                <!-- Populaires -->
+   	<div class="intro-content">
+   		<div class="row">
 
-                <section class="populaires">
-                    <div class="populaires-title">
-                        <h2 class="section-title">Les plus populaires</h2>
-                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-                    </div>
-                    <div class="populaires-cards">
-                        <a href="#">
-                            <article class="card">
-                                <img src="./images/hebergements/emile-guillemot.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Hôtel Le soleil du matin</h3>
-                                        <p class="card-subtitle">Nuit à partir de 128<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </a>                                             
-                        <a href="#">
-                            <article class="card">
-                                <img src="./images/hebergements/aw-creative.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Chambres d’hôtes Au cœur de l’eau</h3>
-                                        <p class="card-subtitle">Nuit à partir de 71<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </a>                                                
-                        <a href="#">
-                            <article class="card">
-                                <img src="./images/hebergements/febrian-zakaria2.jpg" alt="Image de la chambre d'hôtel montrant un lit">
-                                <div class="card-content">
-                                    <div class="card-txt">
-                                        <h3 class="card-title">Hôtel Bleu et Blanc</h3>
-                                        <p class="card-subtitle">Nuit à partir de 68<span class="euro">€</span></p>
-                                    </div>
-                                    <div class="card-rating">
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
-                                        <i class="fa-xs fa-solid fa-star neutralStar" aria-hidden="true"></i>
-                                        <span class="sr-only">Note de 4 sur 5</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </a>                       
-                    </div>
-                </section>
-            </div>
+   			<div class="col-twelve">
 
-            <!-- Activités -->
+	   			<h5>Hello, World.</h5>
+	   			<h1>Moi c'est Valentin.</h1>
 
-            <section id="activites_ancre" class="activites">
-                <h2>Activités à Marseille</h2>
-                <div class="activites-cards">
-                    <article class="card">
-                        <a href="#">
-                            <img src="./images/activites/reno-laithienne.jpg" alt="Photo du vieux port">
-                            <div>
-                                <h3 class="card-title">Vieux port</h3>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="card">
-                        <a href="#">
-                            <img src="./images/activites/paul-hermann.jpg" alt="Photo du Fort de Pomègues avec la ville en dessous">
-                            <div>
-                                <h3 class="card-title">Fort de Pomègues</h3>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="card">
-                        <a href="#">
-                            <img src="./images/activites/kilyan-sockalingum.jpg" alt="Photo du parc national des Calanques">
-                            <div>
-                                <h3 class="card-title">Parc national des Calanques</h3>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="card">
-                        <a href="#">
-                            <img src="./images/activites/florian-wehde.jpg" alt="Photo de Notre-Dame-de-la-Garde">
-                            <div>
-                                <h3 class="card-title">Notre-Dame-de-la-Garde</h3>
-                            </div>
-                        </a>
-                    </article>
-                </div>
-            </section>
-        </main>
+	   			<p class="intro-position">
+	   				<span>Developpeur Fullstack </span>
+	   			</p>
 
-        <!-- Footer -->
+	   			<a class="button stroke smoothscroll" href="#about" title="">À propos de moi</a>
 
-        <footer>
-            <div>
-                <h3>À propos</h3>
-                <p><a href="#">Fonctionnement du site</a></p>
-                <p><a href="#">Conditions générales</a></p>
-                <p><a href="#">Données et confidentialités</a></p>
-            </div>
-            <div>
-                <h3>Nos hébergement</h3>
-                <p><a href="#">Chartre qualité</a></p>
-                <p><a href="#">Proposer votre hôtel</a></p>
-            </div>
-            <div>
-                <h3>Assistance</h3>
-                <p><a href="#">Centre d'aide</a></p>
-                <p><a href="#">Nous contacter</a></p>
-            </div>
+	   		</div>  
+   			
+   		</div>   		 		
+   	</div> <!-- /intro-content --> 
 
-        </footer>
-    </div>
+   	<!-- <ul class="intro-social">        
+         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+         <li><a href="#"><i class="fa fa-behance"></i></a></li>
+         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+         <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+      </ul> /intro-social      	 -->
+
+   </section> <!-- /intro -->
+
+
+   <!-- about section
+   ================================================== -->
+   <section id="about">  
+
+   	<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Qui suis-je ?</h5>
+   			<h1>Laissez moi me présenter.</h1>
+
+   			<div class="intro-info">
+
+   				<img src="images/profile-pic.jpg" alt="Photo de profil">
+
+   				<p class="lead">Je m'appelle Valentin et je suis passionné par le développement web front-end et back-end.
+					J'aime aussi développer des applications.</p>
+   			</div>   			
+
+   		</div>   		
+   	</div> <!-- /section-intro -->
+
+   	<div class="row about-content">
+
+   		<div class="col-six tab-full">
+
+   			<h3>Profil</h3>
+   			<p> Je suis dynamique et très curieux. Étant sensible à l'expérience utilisateur et l'accessibilité, 
+				je développe donc des projets centré autour de l'Humain.</p>
+
+   			<ul class="info-list">
+   				<li>
+   					<strong>Nom:</strong>
+   					<span>Valentin Chapel</span>
+   				</li>
+   				<li>
+   					<strong>Date de naissance:</strong>
+   					<span>10 novembre, 1994</span>
+   				</li>
+   				<li>
+   					<strong>Métier:</strong>
+   					<span>Développeur Fullstack</span>
+   				</li>
+   				<li>
+   					<strong>Site web:</strong>
+   					<span>www.exemple.com</span>
+   				</li>
+   				<li>
+   					<strong>Email:</strong>
+   					<span>valentin.chaps@gmail.com</span>
+   				</li>
+
+   			</ul> <!-- /info-list -->
+
+   		</div>
+
+   		<div class="col-six tab-full">
+
+   			<h3>Compétences</h3>
+   			<p>Les différents projets et formations que j'ai réalisés m'ont permit de développer des compétences très diversifiées, que ce soit pour
+				développer en back-end ou en front-end.
+			</p>
+
+				<ul class="skill-bars">
+				   <li>
+				   	<div class="progress percent100"><span>100%</span></div>
+				   	<strong>HTML5</strong>
+				   </li>
+				   <li>
+				   	<div class="progress percent90"><span>90%</span></div>
+				   	<strong>CSS3</strong>
+				   </li>
+				   <li>
+				   	<div class="progress percent90"><span>90%</span></div>
+				   	<strong>Javascript</strong>
+				   </li>
+				   <li>
+				   	<div class="progress percent95"><span>95%</span></div>
+				   	<strong>React</strong>
+				   </li>
+				   <li>
+
+				   	<div class="progress percent85"><span>85%</span></div>
+				   	<strong>MongoDB</strong>
+				   </li>
+      
+				</ul> <!-- /skill-bars -->		
+
+   		</div>
+
+   	</div>
+
+   	<div class="row button-section">
+   		<div class="col-twelve">
+   			<a href="#contact" title="Hire Me" class="button stroke smoothscroll">Contactez moi</a>
+   			<a href="#resume" title="Download CV" class="button button-primary">Mon Parcours</a>
+   		</div>   		
+   	</div>
+
+   </section> <!-- /process-->    
+
+
+   <!-- resume Section
+   ================================================== -->
+	<section id="resume" class="grey-section">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Mon parcours</h5>
+   			<h1>Pour en savoir un peu plus sur moi.</h1>
+
+   			<p class="lead"></p>
+
+   		</div>   		
+   	</div> <!-- /section-intro--> 
+
+   	<!-- <div class="row resume-timeline">
+
+   		<div class="col-twelve resume-header">
+
+   			<h2>Work Experience</h2>
+
+   		</div> 
+
+   		<div class="col-twelve">
+
+   			<div class="timeline-wrap">
+
+   				<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>UI Designer</h3>
+	   					<p>July 2015 - Present</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Awesome Studio</h4>
+	   					<p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.</p>
+	   				</div>
+
+	   			</div>
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Front-end Developer</h3>
+	   					<p>July 2014 - June 2015</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Super Cool Agency</h4>
+	   					<p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi incididunt.</p>
+	   				</div>
+
+	   			</div> 
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Web Designer</h3>
+	   					<p>May 2013 - June 2014</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Great Designs Studio</h4>
+	   					<p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi incididunt.</p>
+	   				</div>
+
+	   			</div> 
+
+   			</div> 			
+
+   		</div> 
+   		
+   	</div> /resume-timeline -->
+   	
+   	<div class="row resume-timeline">
+
+   		<!-- <div class="col-twelve resume-header">
+
+   			<h2>Diplômes</h2>
+
+   		</div> /resume-header -->
+
+   		<div class="col-twelve">
+
+   			<div class="timeline-wrap">
+
+   				<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Développeur Web</h3>
+	   					<p>Nov 2023 - Maintenant</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Open Classrooms</h4>
+	   					<p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.</p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+				   <div class="timeline-wrap">
+
+					<div class="timeline-block">
+ 
+						<div class="timeline-ico">
+							<i class="fa icon-earth"></i>
+						</div>
+ 
+						<div class="timeline-header">
+							<h3>Voyage en Australie</h3>
+							<p>Déc 2018 - Nov 2019</p>
+						</div>
+ 
+						<div class="timeline-content">
+							<h4>Découverte Culturelle</h4>
+							<p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.</p>
+						</div>
+ 
+					</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Bac +2 en Sociologie et Psychologie</h3>
+	   					<p>Sep 2016 - Juin 2018</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Collège sciences de l'Homme - Bordeaux</h4>
+	   					<p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi incididunt.</p>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+	   			<div class="timeline-block">
+
+	   				<div class="timeline-ico">
+	   					<i class="fa fa-graduation-cap"></i>
+	   				</div>
+
+	   				<div class="timeline-header">
+	   					<h3>Baccalauréat Général - Série Scientifique</h3>
+	   					<p>Septembre 2015 - June 2016</p>
+	   				</div>
+
+	   				<div class="timeline-content">
+	   					<h4>Académie de Bordeaux</h4>
+	   				</div>
+
+	   			</div> <!-- /timeline-block -->
+
+   			</div> <!-- /timeline-wrap -->   			
+
+   		</div> <!-- /col-twelve -->
+   		
+   	</div> <!-- /resume-timeline -->
+		
+	</section> <!-- /features -->
+
+
+	<!-- Portfolio Section
+   ================================================== -->
+	<section id="portfolio">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Portfolio</h5>
+   			<h1>Voici les projets que j'ai réalisé.</h1>
+
+   			<p class="lead">Vous trouverez ici mes différents projets qui m'ont permit de développer mes compétences sur du front-end,
+				du back-end et sur de la gestion de projets.
+
+			</p>
+
+   		</div>   		
+   	</div> <!-- /section-intro--> 
+
+   	<div class="row portfolio-content">
+
+   		<div class="col-twelve">
+
+   			<!-- portfolio-wrapper -->
+	         <div id="folio-wrapper" class="block-1-2 block-mob-full stack">
+
+	         	<div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/booki.PNG" alt="Booki">
+	                  <a href="#modal-01" class="overlay">	                  	           
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+		     					       <h3 class="folio-title">Booki</h3>	     					    
+		     					    	 <span class="folio-types">
+		     					       	  HTML5 & CSS3
+		     					       </span>
+		     					   </div>	                      	
+	                     </div>                    
+	                  </a>
+	               </div>	               
+	        		</div> <!-- /folio-item -->
+
+	        		<div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/sophieBluel.PNG" alt="Sophie Bluel">
+	               	<a href="#modal-02" class="overlay">              		                  
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Sophie Bluel</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  Javascript
+		     					      </span>		     		
+		     					   </div> 	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->
+
+	            <div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/qwenta.PNG"alt="Menu Maker">
+	                  <a href="#modal-03" class="overlay">             		                  
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Menu Maker</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  Gestion de projet
+		     					      </span>		     		
+		     					   </div> 	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->
+
+	            <div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/ninaCarducci1.PNG" alt="Nina Carducci">
+	                  <a href="#modal-04" class="overlay">                  	                 
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Nina Carducci</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  Javascript, Bootstap & SEO
+		     					      </span>		     		
+		     					   </div>  	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->     
+
+	        		<div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/kasa1.PNG" alt="Kasa">
+	                  <a href="#modal-05" class="overlay">             		                  
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Kasa</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  React, React Router & NodeJS
+		     					      </span>		     		
+		     					   </div> 	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->
+
+	            <div class="bgrid folio-item">
+	               <div class="item-wrap">
+	               	<img src="images/portfolio/vieuxGrimoire.PNG" alt="Mon Vieux Grimoire">
+	                  <a href="#modal-06" class="overlay">
+	                     <div class="folio-item-table">
+	                     	<div class="folio-item-cell">
+	                     		<h3 class="folio-title">Mon Vieux Grimoire</h3>	     					    
+		     					    	<span class="folio-types">
+		     					       	  MongoDB, ExpressJS & NodeJS
+		     					      </span>		     		
+		     					   </div>	                      	
+	                     </div>                    
+	                  </a>
+	               </div>
+	        		</div> <!-- /folio-item -->   
+
+	            <!-- modal popups - begin
+	            ============================================================= -->
+	            <div id="modal-01" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-booki.PNG" alt="Booki" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Booki</h4>		      
+					      <p>Booki est un site responsive de location de biens immobiliers fait avec HTML5 et CSS3. </p>
+
+					      <div class="categories">Développement Web Front-end</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="https://github.com/ValentinChaps/Agence-de-voyage-OC" target=”_blank”>Github</a>
+					      <a href="#" class="popup-modal-dismiss">Fermer</a>
+			         </div>		      
+
+				   </div> <!-- /modal-01 -->
+
+				   <div id="modal-02" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-sophieBluel.PNG" alt="Sophie Bluel" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Sophie Bluel - Portfolio</h4>		      
+					      <p>Le portfolio de Sophie Bluel est un projet fait en Javascript. Le site est entièrement dynamique
+							et permet d'ajouter des projets, de les supprimer et d'utiliser des filtres pour les trier. Ceci n'est
+							possible que si vous êtes connecté.
+						  </p>
+
+					      <div class="categories">Développement Web Front-end avec gestion d'API</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="https://github.com/ValentinChaps/Portfolio-architecte-sophie-bluel" target=”_blank”>Github</a>
+					      <a href="#" class="popup-modal-dismiss">Fermer</a>
+			         </div>		      
+
+				   </div> <!-- /modal-02 -->
+
+				   <div id="modal-03" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-qwenta.PNG" alt="Menu Maker" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Menu Maker by Qwenta</h4>		      
+					      <p>L'objectif de ce projet était de préparer et planifier le développement d'un "Menu Maker" pour un client.
+							J'ai été chargé de préparer une présentation des spécifications	techniques nécessaire pour
+							le développement du site, un tableau Kanban afin d'organiser toutes les tâches du projet et une présentation
+							pour le client.
+						  </p>
+
+					      <div class="categories">Gestion de projet</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="http://www.behance.net" target=”_blank”>Github</a>
+					      <a href="#" class="popup-modal-dismiss">Fermer</a>
+			         </div>		      
+
+				   </div> <!-- /modal-03 -->
+
+				   <div id="modal-04" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-ninaCarducci.PNG" alt="Nina Carducci" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Audit pour Nina Carducci</h4>		      
+					      <p>Le but de ce projet était d'identifier des problèmes de chargement et de référencement que le site
+							de Nina Carducci avaient, pour ensuite les résoudre. J'ai résolu les problèmes d'accessibilité et de SEO grâce 
+							à plusieurs outils comme "Wave" ou "Lighthouse". Concernant les difficultés de chargements, j'ai optimisé les
+							images afin qu'elle soit mieux adaptés aux différents navigateur web.
+						  </p>
+
+					      <div class="categories">Optimisation, accessibilité & SEO</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="https://github.com/ValentinChaps/nina-carducci.github.io" target=”_blank”>Github</a>
+					      <a href="#" class="popup-modal-dismiss">Fermer</a>
+			         </div>		      
+
+				   </div> <!-- /modal-04 -->
+
+				   <div id="modal-05" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-kasa.PNG" alt="Kasa" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Kasa</h4>		      
+					      <p>Le projet Kasa m'a permit de développer le front-end d'une application qui permet aux utilisateurs d'avoir
+							une expérience moderne et réactive grâce à React. Le site, totalement responsive, permet de voir des biens 
+							immobiliers ajouter par des particuliers. L'utilisation de React Router permet ici de gérer efficacement le routage.
+
+						  </p>
+
+					      <div class="categories">Développement Web Front-end</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="https://github.com/ValentinChaps/kasa" target=”_blank”>Github</a>
+					      <a href="#" class="popup-modal-dismiss">Fermer</a>
+			         </div>		      
+
+				   </div> <!-- /modal-05 -->
+
+				   <div id="modal-06" class="popup-modal slider mfp-hide">	
+
+				     	<div class="media">
+				     		<img src="images/portfolio/modals/m-vieuxGrimoire.PNG" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>Mon Vieux Grimoire</h4>		      
+					      <p>Le but de ce projet était de créer un serveur avec "ExpressJS" et de le connecter à une base de données 
+							MongoDB. Il a donc fallu mettre en place la structure du serveur et la gestion de la communication entre le serveur
+							et la base de données. Ce projet comprend aussi la gestion du téléchargement et de l'optimisation des images.
+						  </p>
+
+					      <div class="categories">Développement Web Back-end</div>			               
+					   </div>
+
+			         <div class="link-box">
+			            <a href="https://github.com/ValentinChaps/P7-Vieux-Grimoires" target=”_blank”>Github</a>
+					      <a href="#" class="popup-modal-dismiss">Fermer</a>
+			         </div>		      
+
+				   </div> <!-- /modal-06 -->
+
+
+				   <!-- modal popups - end
+	            ============================================================= -->
+
+	         </div> <!-- /portfolio-wrapper --> 
+
+   		</div>  <!-- /twelve -->   
+
+   	</div> <!-- /portfolio-content --> 
+		
+	</section> <!-- /portfolio --> 
+
+
+	<!-- CTA Section
+   ================================================== -->
+	<section id="cta" class="grey-section">
+
+   	<div class="row cta-content">
+
+   		<div class="col-twelve section-ads">  
+
+	     		<h2 class="h01"><a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Styleshout Recommends Dreamhost.</a></h2>
+
+		      <p class="lead">
+		      Looking for an awesome and reliable webhosting? Try <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span>DreamHost</span></a>.
+				Get <span>$50 off</span> when you sign up with the promocode <span>styleshout</span>. 
+				<!-- Simply type	the promocode in the box labeled “Promo Code” when placing your order. -->	
+				</p>
+
+				<div class="action">
+			      <a class="button button-primary large" href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Sign Up Now</a>
+		      </div>		     	
+
+   		</div>
+
+   	</div> <!-- /cta-content -->
+
+   </section> <!-- /cta --> 
+
+	
+	<!-- services Section
+   ================================================== -->
+	<section id="services">
+
+		<div class="overlay"></div>
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Services</h5>
+   			<h1>What Can I Do For You?</h1>
+
+   			<p class="lead">Lorem ipsum Do commodo in proident enim in dolor cupidatat adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem ipsum Consectetur ut in in eu do.</p>
+
+   		</div>   		
+   	</div> <!-- /section-intro -->
+
+   	<div class="row services-content">
+
+   		<div id="owl-slider" class="owl-carousel services-list">
+
+	      	<div class="service">	
+
+	      		<span class="icon"><i class="icon-earth"></i></span>            
+
+	            <div class="service-content">	
+
+	            	 <h3>Webdesign</h3>
+
+		            <p class="desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+	         		</p>
+	         		
+	         	</div> 	         	 
+
+				</div> <!-- /service -->
+
+				<div class="service">	
+
+					<span class="icon"><i class="icon-window"></i></span>                          
+
+	            <div class="service-content">	
+
+	            	<h3>Web Development</h3>  
+
+		            <p class="desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+	         		</p>
+
+	            </div>	                          
+
+			   </div> <!-- /service -->
+
+			   <div class="service">
+
+			   	<span class="icon"><i class="icon-paint-brush"></i></span>		            
+
+	            <div class="service-content">
+
+	            	<h3>Branding</h3>
+
+		            <p class="desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+	        			</p> 
+
+	            </div> 	            	               
+
+			   </div> <!-- /service -->
+
+				<div class="service">
+
+					<span class="icon"><i class="icon-toggles"></i></span>	              
+
+	            <div class="service-content">
+
+	            	<h3>UI/UX Design</h3>
+
+		            <p class="desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+	         		</p> 
+	         		
+	            </div>                
+
+				</div> <!-- /service -->
+
+			   <div class="service">
+
+			   	<span class="icon"><i class="icon-image"></i></span>	            
+
+	            <div class="service-content">
+
+	            	<h3>Graphics Design</h3>
+
+		            <p class="desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+	        			</p> 
+
+	            </div>	               
+
+			   </div> <!-- /service -->
+
+			   <div class="service">
+
+			   	<span class="icon"><i class="icon-chat"></i></span>	   	           
+
+	            <div class="service-content">
+
+	            	 <h3>Consultancy</h3>
+
+		            <p class="desc">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+	        			</p> 
+	        			
+	            </div>	               
+
+			   </div> <!-- /service -->
+
+	      </div> <!-- /services-list -->
+   		
+   	</div> <!-- /services-content -->
+		
+	</section> <!-- /services -->	
+
+
+	<!-- stats Section
+   ================================================== -->
+	<section id="stats" class="count-up">
+
+		<div class="row">
+			<div class="col-twelve">
+
+				<div class="block-1-6 block-s-1-3 block-tab-1-2 block-mob-full stats-list">
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-pencil-ruler"></i>
+						</div>
+
+						<h3 class="stat-count">
+							1500
+						</h3>
+
+						<h5 class="stat-title">
+							Projects Completed
+						</h5>
+
+					</div> <!-- /stat -->					
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-users"></i>
+						</div>
+
+						<h3 class="stat-count">
+							900
+						</h3>
+
+						<h5 class="stat-title">
+							Happy Clients
+						</h5>
+
+					</div> <!-- /stat -->
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-badge"></i>
+						</div>
+
+						<h3 class="stat-count">
+							200
+						</h3>
+
+						<h5 class="stat-title">
+							Awards Received
+						</h5>
+
+					</div> <!-- /stat -->									
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-light-bulb"></i>
+						</div>
+
+						<h3 class="stat-count">
+							120
+						</h3>
+
+						<h5 class="stat-title">
+							Crazy Ideas
+						</h5>
+
+					</div> <!-- /stat -->
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-cup"></i>
+						</div>
+
+						<h3 class="stat-count">
+							1500
+						</h3>
+
+						<h5 class="stat-title">
+							Coffee Cups
+						</h5>
+
+					</div> <!-- /stat -->
+
+					<div class="bgrid stat">
+
+						<div class="icon-part">
+							<i class="icon-clock"></i>
+						</div>
+
+						<h3 class="stat-count">
+							7200
+						</h3>
+
+						<h5 class="stat-title">
+							Hours
+						</h5>
+
+					</div> <!-- /stat -->
+
+				</div> <!-- /stats-list -->
+
+			</div> <!-- /twelve -->
+		</div> <!-- /row -->
+
+	</section> <!-- /stats -->
+
+	
+   <!-- contact
+   ================================================== -->
+	<section id="contact">
+
+		<div class="row section-intro">
+   		<div class="col-twelve">
+
+   			<h5>Contact</h5>
+   			<h1>Envoyez moi un message !</h1>
+
+   			<p class="lead">Si vous souhaitez me contacter vous pouvez remplir le formulaire ci-dessous et je vous répondrais dès que je peux.</p>
+
+   		</div> 
+   	</div> <!-- /section-intro -->
+
+   	<div class="row contact-form">
+
+   		<div class="col-twelve">
+
+            <!-- form -->
+            <form name="contactForm" id="contact-form" method="post" action="">
+      			<fieldset>
+					<input type="hidden" name="contact_number" value="697483">
+                  <div class="form-field">
+ 						   <input type="text" name="user_name"  id="name" placeholder="Nom" value="" minlength="2" required="">
+                  </div>
+                  <div class="form-field">
+	      			   <input name="user_email" type="email" id="email" placeholder="Email" value="" required="">
+	               </div>
+                  <div class="form-field">
+	                 	<textarea name="message" id="message" placeholder="Message" rows="10" cols="50" required=""></textarea>
+	               </div>                      
+                 <div class="form-field">
+                     <button class="submitform">Envoyez</button>
+                     <div id="submit-loader">
+                        <div class="text-loader">En cours d'envoie...</div>                             
+       				      <div class="s-loader">
+								  	<div class="bounce1"></div>
+								  	<div class="bounce2"></div>
+								  	<div class="bounce3"></div>
+								</div>
+							</div>
+                  </div>
+
+      			</fieldset>
+      		</form> <!-- Form End -->
+
+            <!-- contact-warning -->
+            <div id="message-warning"> 
+				Il y a eu un problème, votre message n'a pas été envoyé.          	
+            </div>            
+            <!-- contact-success -->
+      		<div id="message-success">
+               <i class="fa fa-check"></i>Votre message a bien été envoyé, merci !<br>
+      		</div>
+
+         </div> <!-- /col-twelve -->
+   		
+   	</div> <!-- /contact-form -->
+
+   	<div class="row contact-info">
+
+   		<div class="col-four tab-full">
+
+   			<div class="icon">
+   				<i class="icon-pin"></i>
+   			</div>
+
+   			<h5>Where to find me</h5>
+
+   			<p>
+            1600 Amphitheatre Parkway<br>
+            Mountain View, CA<br>
+            94043 US
+            </p>
+
+   		</div>
+
+   		<div class="col-four tab-full collapse">
+
+   			<div class="icon">
+   				<i class="icon-mail"></i>
+   			</div>
+
+   			<h5>Email Me At</h5>
+
+   			<p>someone@kardswebsite.com<br>
+			   	info@kardswebsite.com			     
+			   </p>
+
+   		</div>
+
+   		<div class="col-four tab-full">
+
+   			<div class="icon">
+   				<i class="icon-phone"></i>
+   			</div>
+
+   			<h5>Call Me At</h5>
+
+   			<p>Phone: (+63) 555 1212<br>
+			   	Mobile: (+63) 555 0100<br>
+			     	Fax: (+63) 555 0101
+			   </p>
+
+   		</div>
+   		
+   	</div> <!-- /contact-info -->
+		
+	</section> <!-- /contact -->
+
+
+   <!-- footer
+   ================================================== -->
+
+   <footer>
+     	<div class="row">
+
+     		<div class="col-six tab-full pull-right social">
+
+     			<ul class="footer-social">        
+			      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			      <li><a href="#"><i class="fa fa-behance"></i></a></li>
+			      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+			      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+			   </ul> 
+	      		
+	      </div>
+
+      	<div class="col-six tab-full">
+	      	<div class="copyright">
+		        	<span>© Copyright Kards 2016.</span> 
+		        	<span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>	         	
+		         </div>		                  
+	      	</div>
+
+	      	<div id="go-top">
+		         <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
+		      </div>
+
+      	</div> <!-- /row -->     	
+   </footer>  
+
+   <div id="preloader"> 
+    	<div id="loader"></div>
+   </div> 
+
+   <!-- Java Script
+   ================================================== --> 
+   <script src="js/jquery-2.1.3.min.js"></script>
+   <script src="js/plugins.js"></script>
+   <script src="js/main.js"></script>
+
 </body>
+
 </html>
